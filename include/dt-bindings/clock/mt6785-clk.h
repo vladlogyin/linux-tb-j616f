@@ -342,7 +342,6 @@
 #define	IMG_OWE 10
 #define IMG_NR_CLK 11
 
-
 /* MMSYS_CONFIG */
 #define	MMSYS_SMI_COMMON 1
 #define	MMSYS_SMI_LARB0	2
