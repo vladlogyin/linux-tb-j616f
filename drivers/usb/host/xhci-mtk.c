@@ -470,6 +470,18 @@ static int xhci_mtk_probe(struct platform_device *pdev)
 	if (usb_disabled())
 		return -ENODEV;
 
+  if (of_device_is_compatible(node, "mediatek,mt6785-xhci")) {
+    ret = device_rename(dev, node->name);
+    if (ret)
+      dev_info(&pdev->dev, "failed to rename\n");
+    else {
+      /* fix uaf(use after free) issue: backup pdev->name,
+       * device_rename will free pdev->name
+       */
+      pdev->name = pdev->dev.kobj.name;
+    }
+  }
+  
 	driver = &xhci_mtk_hc_driver;
 	mtk = devm_kzalloc(dev, sizeof(*mtk), GFP_KERNEL);
 	if (!mtk)
@@ -773,7 +785,8 @@ static const struct dev_pm_ops xhci_mtk_pm_ops = {
 #define DEV_PM_OPS (IS_ENABLED(CONFIG_PM) ? &xhci_mtk_pm_ops : NULL)
 
 static const struct of_device_id mtk_xhci_of_match[] = {
-	{ .compatible = "mediatek,mt8173-xhci"},
+  { .compatible = "mediatek,mt6785-xhci"},
+  { .compatible = "mediatek,mt8173-xhci"},
 	{ .compatible = "mediatek,mt8195-xhci"},
 	{ .compatible = "mediatek,mtk-xhci"},
 	{ },

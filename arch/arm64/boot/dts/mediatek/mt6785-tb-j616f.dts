@@ -1,0 +1,14 @@
+/dts-v1/;
+#include "mt6785.dtsi"
+
+/ {
+  model = "Lenovo Tab P11 Plus TB-J616F";
+  compatible = "mediatek,mt6785-tb-j616f", "mediatek,mt6785";
+  
+	memory {
+		device_type = "memory";
+		reg = <0x00 0x40000000 0x00 0x3e605000>;
+	};
+}
+
+//&mmc1

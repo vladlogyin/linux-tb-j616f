@@ -574,16 +574,29 @@ static const struct mtk_mmc_compatible mt7620_compat = {
 };
 
 static const struct mtk_mmc_compatible mt6779_compat = {
-	.clk_div_bits = 12,
-	.recheck_sdio_irq = false,
-	.hs400_tune = false,
-	.pad_tune_reg = MSDC_PAD_TUNE0,
-	.async_fifo = true,
-	.data_tune = true,
-	.busy_check = true,
-	.stop_clk_fix = true,
-	.enhance_rx = true,
-	.support_64g = true,
+  .clk_div_bits = 12,
+  .recheck_sdio_irq = false,
+  .hs400_tune = false,
+  .pad_tune_reg = MSDC_PAD_TUNE0,
+  .async_fifo = true,
+  .data_tune = true,
+  .busy_check = true,
+  .stop_clk_fix = true,
+  .enhance_rx = true,
+  .support_64g = true,
+};
+
+static const struct mtk_mmc_compatible mt6785_compat = {
+  .clk_div_bits = 12,
+  .recheck_sdio_irq = false,
+  .hs400_tune = false,
+  .pad_tune_reg = MSDC_PAD_TUNE0,
+  .async_fifo = true,
+  .data_tune = true,
+  .busy_check = true,
+  .stop_clk_fix = true,
+  .enhance_rx = true,
+  .support_64g = true,
 };
 
 static const struct of_device_id msdc_of_ids[] = {
@@ -596,6 +609,7 @@ static const struct of_device_id msdc_of_ids[] = {
 	{ .compatible = "mediatek,mt8516-mmc", .data = &mt8516_compat},
 	{ .compatible = "mediatek,mt7620-mmc", .data = &mt7620_compat},
 	{ .compatible = "mediatek,mt6779-mmc", .data = &mt6779_compat},
+  { .compatible = "mediatek,mt6785-mmc", .data = &mt6785_compat},
 	{}
 };
 MODULE_DEVICE_TABLE(of, msdc_of_ids);

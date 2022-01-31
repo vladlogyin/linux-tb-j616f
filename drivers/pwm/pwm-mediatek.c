@@ -267,9 +267,15 @@ static int pwm_mediatek_probe(struct platform_device *pdev)
 }
 
 static const struct pwm_mediatek_of_data mt2712_pwm_data = {
-	.num_pwms = 8,
-	.pwm45_fixup = false,
-	.has_ck_26m_sel = false,
+  .num_pwms = 8,
+  .pwm45_fixup = false,
+  .has_ck_26m_sel = false,
+};
+
+static const struct pwm_mediatek_of_data mt6785_pwm_data = {
+  .num_pwms = 4,
+  .pwm45_fixup = false,
+  .has_ck_26m_sel = true,
 };
 
 static const struct pwm_mediatek_of_data mt7622_pwm_data = {
@@ -309,7 +315,8 @@ static const struct pwm_mediatek_of_data mt8516_pwm_data = {
 };
 
 static const struct of_device_id pwm_mediatek_of_match[] = {
-	{ .compatible = "mediatek,mt2712-pwm", .data = &mt2712_pwm_data },
+  { .compatible = "mediatek,mt2712-pwm", .data = &mt2712_pwm_data },
+  { .compatible = "mediatek,mt6785-pwm", .data = &mt6785_pwm_data },
 	{ .compatible = "mediatek,mt7622-pwm", .data = &mt7622_pwm_data },
 	{ .compatible = "mediatek,mt7623-pwm", .data = &mt7623_pwm_data },
 	{ .compatible = "mediatek,mt7628-pwm", .data = &mt7628_pwm_data },
