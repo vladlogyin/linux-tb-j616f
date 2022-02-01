@@ -15,6 +15,8 @@
 #include <linux/of.h>
 #include <linux/of_address.h>
 
+#include <linux/spinlock.h>
+
 #include <linux/io.h>
 #include <linux/slab.h>
 #include <linux/delay.h>
@@ -4611,11 +4613,11 @@ static int enable_subsys(enum subsys_id id)
 #endif
 
 
-	spin_lock_irqsave(&clk_ops_lock(), flags)
+	spin_lock_irqsave(&clk_ops_lock, flags);
 
 #if CHECK_PWR_ST
 	if (sys->ops->get_state(sys) == SUBSYS_PWR_ON) {
-		spin_unlock_irqsave(&clk_ops_lock(), flags)
+		spin_unlock_irqrestore(&clk_ops_lock, flags);
 		return 0;
 	}
 #endif				/* CHECK_PWR_ST */
@@ -4623,7 +4625,7 @@ static int enable_subsys(enum subsys_id id)
 	r = sys->ops->enable(sys);
 	WARN_ON(r);
 
-	spin_unlock_irqsave(&clk_ops_lock(), flags)
+	spin_unlock_irqrestore(&clk_ops_lock, flags);
 
 	list_for_each_entry(pgcb, &pgcb_list, list) {
 		if (pgcb->after_on)
@@ -4682,11 +4684,11 @@ static int disable_subsys(enum subsys_id id)
 			pgcb->before_off(id);
 	}
 
-	spin_lock_irqsave(&clk_ops_lock(), flags)
+	spin_lock_irqsave(&clk_ops_lock, flags);
 
 #if CHECK_PWR_ST
 	if (sys->ops->get_state(sys) == SUBSYS_PWR_DOWN) {
-		spin_unlock_irqsave(&clk_ops_lock(), flags)
+		spin_unlock_irqrestore(&clk_ops_lock, flags);
 		return 0;
 	}
 #endif				/* CHECK_PWR_ST */
@@ -4694,7 +4696,7 @@ static int disable_subsys(enum subsys_id id)
 	r = sys->ops->disable(sys);
 	WARN_ON(r);
 
-	spin_unlock_irqsave(&clk_ops_lock(), flags)
+	spin_unlock_irqrestore(&clk_ops_lock, flags);
 
 	return r;
 }

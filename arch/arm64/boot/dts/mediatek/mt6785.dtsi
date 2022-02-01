@@ -3,6 +3,8 @@
  * Copyright (c) 2022 Vlad L. <vladlogyin@gmail.com>
  */
 #include <dt-bindings/clock/mt6785-clk.h>
+#include <dt-bindings/iio/mt635x-auxadc.h>
+#include <dt-bindings/mfd/mt6359-irq.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 / {
   model = "MT6785";
@@ -350,10 +352,35 @@
     compatible = "mediatek,mt6785-scpsys";
     reg = <0 0x10001000 0 0x1000>,
     <0 &sleep 0 0x1000>,
-    <0 &infracfg 0 0x1000>,
+    <0 &infracfg_ao 0 0x1000>,
     <0 &topckgen 0 0x1000>,
     <0 &smi_common 0 0x1000>;
     #clock-cells = <1>;
+  };
+  
+  mmsys_config: mmsys_config@14000000 {
+    compatible = "mediatek,mmsys_config", "syscon";
+    reg = <0 0x14000000 0 0x1000>;
+    interrupts = <GIC_SPI 263 IRQ_TYPE_LEVEL_LOW>;
+    #clock-cells = <1>;
+    clocks = <&mmsys_config MMSYS_MDP_DL_TXCK>,
+    <&mmsys_config MMSYS_MDP_DL_RX_CK>,
+    <&mmsys_config MMSYS_IPU_DL_TXCK>,
+    <&mmsys_config MMSYS_IPU_DL_RX_CK>;
+    clock-names = "CAM_MDP_TX",
+    "CAM_MDP_RX",
+    "CAM_MDP2_TX",
+    "CAM_MDP2_RX";
+  };
+  
+  smi_common: smi_common@14019000 {
+    compatible = "mediatek,smi_common";
+    reg = <0 0x14019000 0 0x1000>;
+    clocks = <&scpsys SCP_SYS_DIS>,
+    <&mmsys_config MMSYS_SMI_COMMON>;
+    clock-names = "scp-dis", "mm-common";
+    mediatek,smi-id = <8>;
+    mmsys_config = <&mmsys_config>;
   };
   
   scp_dvfs {
@@ -424,6 +451,12 @@
     reg = <0 0x10005000 0 0x1000>;
   };
   
+  eint: apirq@1000b000 {
+    compatible = "mediatek,apirq";
+    reg = <0 0x1000b000 0 0x1000>;
+    interrupts = <GIC_SPI 204 IRQ_TYPE_LEVEL_HIGH>;
+  };
+  
   pio: pinctrl {
     compatible = "mediatek,mt6785-pinctrl";
     reg_bases = <&gpio>,
@@ -450,7 +483,7 @@
     interrupts = <GIC_SPI 213 IRQ_TYPE_LEVEL_LOW>;
   };
   
-/*  pwrap: pwrap@1000d000 {
+  pwrap: pwrap@1000d000 {
     compatible = "mediatek,mt6785-pwrap";
     reg = <0 0x1000d000 0 0x1000>;
     reg-names = "pwrap";
@@ -464,7 +497,7 @@
       interrupts = <193 IRQ_TYPE_LEVEL_HIGH 193 0>;
       status = "okay";
     };
-  };*/
+  };
 
   chipid@08000000 {
     compatible = "mediatek,chipid";
@@ -861,7 +894,7 @@
   };
   
   mtu3_0:mtu3_0@11200000 {
-    compatible = "mediatek,mtu3";
+    compatible = "mediatek,mt6785-mtu3";
     reg = <0 0x11201000 0 0x3000>,
     <0 0x11203E00 0 0x100>;
     reg-names = "mac", "ippc";
@@ -889,6 +922,18 @@
     clock-names = "sys_ck";
     phys = <&usb0phy 0>;
     phy-names = "port0_phy";
+  };
+  
+  usb0phy:usbphy0@11E40000 {
+    compatible = "mediatek,mt6785-phy";
+    reg = <0 0x11e40000 0 0x10000>,
+    <0 0x11203e00 0 0x100>;
+    reg-names = "sif_base", "ippc";
+    #phy-cells = <1>;
+  };
+  
+  extcon_usb: extcon_usb {
+    compatible = "mediatek,extcon-usb";
   };
   
   mmc0: mmc@11230000 {

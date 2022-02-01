@@ -9,6 +9,6 @@
 		device_type = "memory";
 		reg = <0x00 0x40000000 0x00 0x3e605000>;
 	};
-}
+};
 
 //&mmc1

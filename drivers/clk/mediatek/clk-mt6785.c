@@ -262,11 +262,11 @@ void __iomem *apu_mdla_base;
 #define CK_CFG_13_CLR	0xF8
 
 
-static const struct mtk_fixed_clk fixed_clks[] __initconst = {
+static const struct mtk_fixed_clk fixed_clks[]  = {
 	FIXED_CLK(TOP_CLK26M, "f_f26m_ck", "clk26m", 26000000),
 };
 
-static const struct mtk_fixed_factor top_divs[] __initconst = {
+static const struct mtk_fixed_factor top_divs[]  = {
 	FACTOR(TOP_CLK13M, "clk13m", "clk26m", 1,
 		2),
 	FACTOR(TOP_F26M_CK_D2, "csw_f26m_ck_d2", "clk26m", 1,
@@ -441,14 +441,14 @@ static const struct mtk_fixed_factor top_divs[] __initconst = {
 		1),
 };
 
-static const char * const axi_parents[] __initconst = {
+static const char * const axi_parents[]  = {
 	"clk26m",
 	"mainpll_d2_d4",
 	"mainpll_d7",
 	"osc_d4"
 };
 
-static const char * const mm_parents[] __initconst = {
+static const char * const mm_parents[]  = {
 	"clk26m",
 	"adsppll_d5",
 	"mmpll_d7",
@@ -457,7 +457,7 @@ static const char * const mm_parents[] __initconst = {
 	"tvdpll_mainpll_d2_ck"
 };
 
-static const char * const scp_parents[] __initconst = {
+static const char * const scp_parents[]  = {
 	"clk26m",
 	"mainpll_d2_d2",
 	"mainpll_d2_d4",
@@ -468,7 +468,7 @@ static const char * const scp_parents[] __initconst = {
 	"osc2_d3"
 };
 
-static const char * const img_parents[] __initconst = {
+static const char * const img_parents[]  = {
 	"clk26m",
 	"mainpll_d2",
 	"mmpll_d6",
@@ -479,7 +479,7 @@ static const char * const img_parents[] __initconst = {
 	"mainpll_d2_d2"
 };
 
-static const char * const ipe_parents[] __initconst = {
+static const char * const ipe_parents[]  = {
 	"clk26m",
 	"mainpll_d2",
 	"mmpll_d6",
@@ -490,7 +490,7 @@ static const char * const ipe_parents[] __initconst = {
 	"mainpll_d2_d2"
 };
 
-static const char * const dpe_parents[] __initconst = {
+static const char * const dpe_parents[]  = {
 	"clk26m",
 	"mainpll_d2",
 	"mmpll_d6",
@@ -501,7 +501,7 @@ static const char * const dpe_parents[] __initconst = {
 	"mainpll_d2_d2"
 };
 
-static const char * const cam_parents[] __initconst = {
+static const char * const cam_parents[]  = {
 	"clk26m",
 	"mainpll_d2",
 	"mmpll_d6",
@@ -514,7 +514,7 @@ static const char * const cam_parents[] __initconst = {
 	"univpll_d3_d2"
 };
 
-static const char * const ccu_parents[] __initconst = {
+static const char * const ccu_parents[]  = {
 	"clk26m",
 	"mainpll_d2",
 	"mmpll_d6",
@@ -527,7 +527,7 @@ static const char * const ccu_parents[] __initconst = {
 	"univpll_d3_d2"
 };
 
-static const char * const dsp_parents[] __initconst = {
+static const char * const dsp_parents[]  = {
 	"clk26m",
 	"univpll_d3_d8",
 	"univpll_d3_d4",
@@ -546,7 +546,7 @@ static const char * const dsp_parents[] __initconst = {
 	"apupll_ck"
 };
 
-static const char * const dsp1_parents[] __initconst = {
+static const char * const dsp1_parents[]  = {
 	"clk26m",
 	"univpll_d3_d8",
 	"univpll_d3_d4",
@@ -565,7 +565,7 @@ static const char * const dsp1_parents[] __initconst = {
 	"apupll_ck"
 };
 
-static const char * const dsp2_parents[] __initconst = {
+static const char * const dsp2_parents[]  = {
 	"clk26m",
 	"univpll_d3_d8",
 	"univpll_d3_d4",
@@ -584,7 +584,7 @@ static const char * const dsp2_parents[] __initconst = {
 	"apupll_ck"
 };
 
-static const char * const dsp3_parents[] __initconst = {
+static const char * const dsp3_parents[]  = {
 	"clk26m",
 	"univpll_d3_d8",
 	"mainpll_d2_d4",
@@ -603,7 +603,7 @@ static const char * const dsp3_parents[] __initconst = {
 	"mmpll_d4"
 };
 
-static const char * const ipu_if_parents[] __initconst = {
+static const char * const ipu_if_parents[]  = {
 	"clk26m",
 	"univpll_d3_d8",
 	"univpll_d3_d4",
@@ -622,21 +622,21 @@ static const char * const ipu_if_parents[] __initconst = {
 	"apupll_ck"
 };
 
-static const char * const mfg_parents[] __initconst = {
+static const char * const mfg_parents[]  = {
 	"clk26m",
 	"mfgpll_ck",
 	"univpll_d3",
 	"mainpll_d5"
 };
 
-static const char * const f52m_mfg_parents[] __initconst = {
+static const char * const f52m_mfg_parents[]  = {
 	"clk26m",
 	"univpll_d3_d2",
 	"univpll_d3_d4",
 	"univpll_d3_d8"
 };
 
-static const char * const camtg_parents[] __initconst = {
+static const char * const camtg_parents[]  = {
 	"clk26m",
 	"univpll_192m_d8",
 	"univpll_d3_d8",
@@ -647,7 +647,7 @@ static const char * const camtg_parents[] __initconst = {
 	"univpll_192m_d32"
 };
 
-static const char * const camtg2_parents[] __initconst = {
+static const char * const camtg2_parents[]  = {
 	"clk26m",
 	"univpll_192m_d8",
 	"univpll_d3_d8",
@@ -658,7 +658,7 @@ static const char * const camtg2_parents[] __initconst = {
 	"univpll_192m_d32"
 };
 
-static const char * const camtg3_parents[] __initconst = {
+static const char * const camtg3_parents[]  = {
 	"clk26m",
 	"univpll_192m_d8",
 	"univpll_d3_d8",
@@ -669,7 +669,7 @@ static const char * const camtg3_parents[] __initconst = {
 	"univpll_192m_d32"
 };
 
-static const char * const camtg4_parents[] __initconst = {
+static const char * const camtg4_parents[]  = {
 	"clk26m",
 	"univpll_192m_d8",
 	"univpll_d3_d8",
@@ -680,7 +680,7 @@ static const char * const camtg4_parents[] __initconst = {
 	"univpll_192m_d32"
 };
 
-static const char * const camtg5_parents[] __initconst = {
+static const char * const camtg5_parents[]  = {
 	"clk26m",
 	"univpll_192m_d8",
 	"univpll_d3_d8",
@@ -691,25 +691,25 @@ static const char * const camtg5_parents[] __initconst = {
 	"univpll_192m_d32"
 };
 
-static const char * const uart_parents[] __initconst = {
+static const char * const uart_parents[]  = {
 	"clk26m",
 	"univpll_d3_d8"
 };
 
-static const char * const spi_parents[] __initconst = {
+static const char * const spi_parents[]  = {
 	"clk26m",
 	"mainpll_d5_d2",
 	"mainpll_d3_d4",
 	"msdcpll_d4"
 };
 
-static const char * const msdc50_hclk_parents[] __initconst = {
+static const char * const msdc50_hclk_parents[]  = {
 	"clk26m",
 	"mainpll_d2_d2",
 	"mainpll_d3_d2"
 };
 
-static const char * const msdc50_0_parents[] __initconst = {
+static const char * const msdc50_0_parents[]  = {
 	"clk26m",
 	"msdcpll_ck",
 	"msdcpll_d2",
@@ -718,7 +718,7 @@ static const char * const msdc50_0_parents[] __initconst = {
 	"univpll_d2_d2"
 };
 
-static const char * const msdc30_1_parents[] __initconst = {
+static const char * const msdc30_1_parents[]  = {
 	"clk26m",
 	"univpll_d3_d2",
 	"mainpll_d3_d2",
@@ -726,21 +726,21 @@ static const char * const msdc30_1_parents[] __initconst = {
 	"msdcpll_d2"
 };
 
-static const char * const audio_parents[] __initconst = {
+static const char * const audio_parents[]  = {
 	"clk26m",
 	"mainpll_d5_d4",
 	"mainpll_d7_d4",
 	"mainpll_d2_d16"
 };
 
-static const char * const aud_intbus_parents[] __initconst = {
+static const char * const aud_intbus_parents[]  = {
 	"clk26m",
 	"mainpll_d2_d4",
 	"mainpll_d7_d2"
 };
 
 
-static const char * const fpwrap_ulposc_parents[] __initconst = {
+static const char * const fpwrap_ulposc_parents[]  = {
 	"osc_d10",
 	"clk26m",
 	"osc_d4",
@@ -748,13 +748,13 @@ static const char * const fpwrap_ulposc_parents[] __initconst = {
 	"osc_d16"
 };
 
-static const char * const atb_parents[] __initconst = {
+static const char * const atb_parents[]  = {
 	"clk26m",
 	"mainpll_d2_d2",
 	"mainpll_d5"
 };
 
-static const char * const sspm_parents[] __initconst = {
+static const char * const sspm_parents[]  = {
 	"clk26m",
 	"univpll_d2_d4",
 	"mainpll_d2_d2",
@@ -762,7 +762,7 @@ static const char * const sspm_parents[] __initconst = {
 	"mainpll_d3"
 };
 
-static const char * const dpi0_parents[] __initconst = {
+static const char * const dpi0_parents[]  = {
 	"clk26m",
 	"tvdpll_d2",
 	"tvdpll_d4",
@@ -770,12 +770,12 @@ static const char * const dpi0_parents[] __initconst = {
 	"tvdpll_d16"
 };
 
-static const char * const scam_parents[] __initconst = {
+static const char * const scam_parents[]  = {
 	"clk26m",
 	"mainpll_d5_d2"
 };
 
-static const char * const disppwm_parents[] __initconst = {
+static const char * const disppwm_parents[]  = {
 	"clk26m",
 	"univpll_d3_d4",
 	"osc_d2",
@@ -783,7 +783,7 @@ static const char * const disppwm_parents[] __initconst = {
 	"osc_d16"
 };
 
-static const char * const usb_top_parents[] __initconst = {
+static const char * const usb_top_parents[]  = {
 	"clk26m",
 	"univpll_d5_d4",
 	"univpll_d3_d4",
@@ -791,68 +791,68 @@ static const char * const usb_top_parents[] __initconst = {
 };
 
 
-static const char * const ssusb_top_xhci_parents[] __initconst = {
+static const char * const ssusb_top_xhci_parents[]  = {
 	"clk26m",
 	"univpll_d5_d4",
 	"univpll_d3_d4",
 	"univpll_d5_d2"
 };
 
-static const char * const spm_parents[] __initconst = {
+static const char * const spm_parents[]  = {
 	"clk26m",
 	"osc_d8",
 	"mainpll_d2_d8"
 };
 
-static const char * const i2c_parents[] __initconst = {
+static const char * const i2c_parents[]  = {
 	"clk26m",
 	"mainpll_d2_d8",
 	"univpll_d5_d2"
 };
 
-static const char * const seninf_parents[] __initconst = {
+static const char * const seninf_parents[]  = {
 	"clk26m",
 	"univpll_d7",
 	"univpll_d3_d2",
 	"univpll_d2_d2"
 };
 
-static const char * const seninf1_parents[] __initconst = {
+static const char * const seninf1_parents[]  = {
 	"clk26m",
 	"univpll_d7",
 	"univpll_d3_d2",
 	"univpll_d2_d2"
 };
 
-static const char * const seninf2_parents[] __initconst = {
+static const char * const seninf2_parents[]  = {
 	"clk26m",
 	"univpll_d7",
 	"univpll_d3_d2",
 	"univpll_d2_d2"
 };
 
-static const char * const dxcc_parents[] __initconst = {
+static const char * const dxcc_parents[]  = {
 	"clk26m",
 	"mainpll_d2_d2",
 	"mainpll_d2_d4",
 	"mainpll_d2_d8"
 };
 
-static const char * const aud_eng1_parents[] __initconst = {
+static const char * const aud_eng1_parents[]  = {
 	"clk26m",
 	"apll1_d2",
 	"apll1_d4",
 	"apll1_d8"
 };
 
-static const char * const aud_eng2_parents[] __initconst = {
+static const char * const aud_eng2_parents[]  = {
 	"clk26m",
 	"apll2_d2",
 	"apll2_d4",
 	"apll2_d8"
 };
 
-static const char * const faes_ufsfde_parents[] __initconst = {
+static const char * const faes_ufsfde_parents[]  = {
 	"clk26m",
 	"mainpll_d2",
 	"mainpll_d2_d2",
@@ -861,24 +861,24 @@ static const char * const faes_ufsfde_parents[] __initconst = {
 	"univpll_d3"
 };
 
-static const char * const fufs_parents[] __initconst = {
+static const char * const fufs_parents[]  = {
 	"clk26m",
 	"mainpll_d2_d4",
 	"mainpll_d2_d8",
 	"mainpll_d2_d16"
 };
 
-static const char * const aud_1_parents[] __initconst = {
+static const char * const aud_1_parents[]  = {
 	"clk26m",
 	"apll1_ck"
 };
 
-static const char * const aud_2_parents[] __initconst = {
+static const char * const aud_2_parents[]  = {
 	"clk26m",
 	"apll2_ck"
 };
 
-static const char * const adsp_parents[] __initconst = {
+static const char * const adsp_parents[]  = {
 	"clk26m",
 	"mainpll_d3",
 	"univpll_d2_d4",
@@ -888,7 +888,7 @@ static const char * const adsp_parents[] __initconst = {
 	"adsppll_d6"
 };
 
-static const char * const dpmaif_parents[] __initconst = {
+static const char * const dpmaif_parents[]  = {
 	"clk26m",
 	"univpll_d2_d4",
 	"mainpll_d3",
@@ -897,7 +897,7 @@ static const char * const dpmaif_parents[] __initconst = {
 	"univpll_d3"
 };
 
-static const char * const venc_parents[] __initconst = {
+static const char * const venc_parents[]  = {
 	"clk26m",
 	"mmpll_d7",
 	"mainpll_d3",
@@ -914,7 +914,7 @@ static const char * const venc_parents[] __initconst = {
 
 };
 
-static const char * const vdec_parents[] __initconst = {
+static const char * const vdec_parents[]  = {
 	"clk26m",
 	"univpll_d2_d4",
 	"mainpll_d3",
@@ -928,19 +928,19 @@ static const char * const vdec_parents[] __initconst = {
 	"univpll_192m_d2"
 };
 
-static const char * const camtm_parents[] __initconst = {
+static const char * const camtm_parents[]  = {
 	"clk26m",
 	"univpll_d7",
 	"univpll_d3_d2",
 	"univpll_d2_d2"
 };
 
-static const char * const pwm_parents[] __initconst = {
+static const char * const pwm_parents[]  = {
 	"clk26m",
 	"univpll_d2_d8"
 };
 
-static const char * const audio_h_parents[] __initconst = {
+static const char * const audio_h_parents[]  = {
 	"clk26m",
 	"univpll_d7",
 	"apll1_ck",
@@ -949,38 +949,38 @@ static const char * const audio_h_parents[] __initconst = {
 
 
 
-static const char * const i2s0_m_ck_parents[] __initconst = {
+static const char * const i2s0_m_ck_parents[]  = {
 	"aud_1_sel",
 	"aud_2_sel"
 };
 
-static const char * const i2s1_m_ck_parents[] __initconst = {
+static const char * const i2s1_m_ck_parents[]  = {
 	"aud_1_sel",
 	"aud_2_sel"
 };
 
-static const char * const i2s2_m_ck_parents[] __initconst = {
+static const char * const i2s2_m_ck_parents[]  = {
 	"aud_1_sel",
 	"aud_2_sel"
 };
 
-static const char * const i2s3_m_ck_parents[] __initconst = {
+static const char * const i2s3_m_ck_parents[]  = {
 	"aud_1_sel",
 	"aud_2_sel"
 };
 
-static const char * const i2s4_m_ck_parents[] __initconst = {
+static const char * const i2s4_m_ck_parents[]  = {
 	"aud_1_sel",
 	"aud_2_sel"
 };
 
-static const char * const i2s5_m_ck_parents[] __initconst = {
+static const char * const i2s5_m_ck_parents[]  = {
 	"aud_1_sel",
 	"aud_2_sel"
 };
 
 
-static const struct mtk_mux top_muxes[] __initconst = {
+static const struct mtk_mux top_muxes[]  = {
 #if MT_CCF_BRINGUP
 	/* CLK_CFG_0 */
 	MUX_CLR_SET_UPD_FLAGS(TOP_MUX_AXI, "axi_sel", axi_parents,
@@ -1246,271 +1246,271 @@ static const struct mtk_mux top_muxes[] __initconst = {
 		0x008, 24, CLK_IS_CRITICAL),
 #else
 	/* CLK_CFG_0 */
-	MUX_CLR_SET_UPD_FLAGS(TOP_MUX_AXI, "axi_sel", axi_parents,
+	MUX_GATE_CLR_SET_UPD_FLAGS(TOP_MUX_AXI, "axi_sel", axi_parents,
 		CK_CFG_0, CK_CFG_0_SET, CK_CFG_0_CLR,
 		0, 2, 7,
 		0x004, 0, CLK_IS_CRITICAL),
 
-	MUX_CLR_SET_UPD(TOP_MUX_MM, "mm_sel", mm_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_MM, "mm_sel", mm_parents,
 		CK_CFG_0, CK_CFG_0_SET, CK_CFG_0_CLR,
 		8, 3, 15,
 		0x004, 1),
 
-	MUX_CLR_SET_UPD(TOP_MUX_SCP, "scp_sel", scp_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_SCP, "scp_sel", scp_parents,
 		CK_CFG_0, CK_CFG_0_SET, CK_CFG_0_CLR,
 		16, 3, 23,
 		0x004, 2),
 
 	/* CLK_CFG_1 */
-	MUX_CLR_SET_UPD(TOP_MUX_IMG, "img_sel", img_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_IMG, "img_sel", img_parents,
 		CK_CFG_1, CK_CFG_1_SET, CK_CFG_1_CLR,
 		0, 3, 7,
 		0x004, 4),
 
-	MUX_CLR_SET_UPD(TOP_MUX_CAM, "cam_sel", cam_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_CAM, "cam_sel", cam_parents,
 		CK_CFG_1, CK_CFG_1_SET, CK_CFG_1_CLR,
 		24, 4, 31,
 		0x004, 7),
 
 	/* CLK_CFG_2 */
-	MUX_CLR_SET_UPD(TOP_MUX_DSP, "dsp_sel", dsp_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_DSP, "dsp_sel", dsp_parents,
 		CK_CFG_2, CK_CFG_2_SET, CK_CFG_2_CLR,
 		8, 4, 15,
 		0x004, 9),
 
-	MUX_CLR_SET_UPD(TOP_MUX_DSP1, "dsp1_sel", dsp1_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_DSP1, "dsp1_sel", dsp1_parents,
 		CK_CFG_2, CK_CFG_2_SET, CK_CFG_2_CLR,
 		16, 4, 23,
 		0x004, 10),
 
-	MUX_CLR_SET_UPD(TOP_MUX_DSP2, "dsp2_sel", dsp2_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_DSP2, "dsp2_sel", dsp2_parents,
 		CK_CFG_2, CK_CFG_2_SET, CK_CFG_2_CLR,
 		24, 4, 31,
 		0x004, 11),
 
 	/* CLK_CFG_3 */
-	MUX_CLR_SET_UPD(TOP_MUX_IPU_IF, "ipu_if_sel", ipu_if_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_IPU_IF, "ipu_if_sel", ipu_if_parents,
 		CK_CFG_3, CK_CFG_3_SET, CK_CFG_3_CLR,
 		8, 4, 15,
 		0x004, 13),
 
-	MUX_CLR_SET_UPD(TOP_MUX_MFG, "mfg_sel", mfg_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_MFG, "mfg_sel", mfg_parents,
 		CK_CFG_3, CK_CFG_3_SET, CK_CFG_3_CLR,
 		16, 2, 23,
 		0x004, 14),
 
 	/* CLK_CFG_4 */
-	MUX_CLR_SET_UPD(TOP_MUX_CAMTG, "camtg_sel", camtg_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_CAMTG, "camtg_sel", camtg_parents,
 		CK_CFG_4, CK_CFG_4_SET, CK_CFG_4_CLR,
 		0, 3, 7,
 		0x004, 16),
 
-	MUX_CLR_SET_UPD(TOP_MUX_CAMTG2, "camtg2_sel", camtg2_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_CAMTG2, "camtg2_sel", camtg2_parents,
 		CK_CFG_4, CK_CFG_4_SET, CK_CFG_4_CLR,
 		8, 3, 15,
 		0x004, 17),
 
-	MUX_CLR_SET_UPD(TOP_MUX_CAMTG3, "camtg3_sel", camtg3_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_CAMTG3, "camtg3_sel", camtg3_parents,
 		CK_CFG_4, CK_CFG_4_SET, CK_CFG_4_CLR,
 		16, 3, 23,
 		0x004, 18),
 
-	MUX_CLR_SET_UPD(TOP_MUX_CAMTG4, "camtg4_sel", camtg4_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_CAMTG4, "camtg4_sel", camtg4_parents,
 		CK_CFG_4, CK_CFG_4_SET, CK_CFG_4_CLR,
 		24, 3, 31,
 		0x004, 19),
 
 	/* CLK_CFG_5 */
-	MUX_CLR_SET_UPD(TOP_MUX_UART, "uart_sel", uart_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_UART, "uart_sel", uart_parents,
 		CK_CFG_5, CK_CFG_5_SET, CK_CFG_5_CLR,
 		0, 1, 7,
 		0x004, 20),
 
-	MUX_CLR_SET_UPD(TOP_MUX_SPI, "spi_sel", spi_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_SPI, "spi_sel", spi_parents,
 		CK_CFG_5, CK_CFG_5_SET, CK_CFG_5_CLR,
 		8, 2, 15,
 		0x004, 21),
 
-	MUX_CLR_SET_UPD(TOP_MUX_MSDC50_0_HCLK, "msdc50_hclk_sel",
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_MSDC50_0_HCLK, "msdc50_hclk_sel",
 		msdc50_hclk_parents,
 		CK_CFG_5, CK_CFG_5_SET, CK_CFG_5_CLR,
 		16, 2, 23,
 		0x004, 22),
 
-	MUX_CLR_SET_UPD(TOP_MUX_MSDC50_0, "msdc50_0_sel",
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_MSDC50_0, "msdc50_0_sel",
 		msdc50_0_parents,
 		CK_CFG_5, CK_CFG_5_SET, CK_CFG_5_CLR,
 		24, 3, 31,
 		0x004, 23),
 
 	/* CLK_CFG_6 */
-	MUX_CLR_SET_UPD(TOP_MUX_MSDC30_1, "msdc30_1_sel",
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_MSDC30_1, "msdc30_1_sel",
 		msdc30_1_parents,
 		CK_CFG_6, CK_CFG_6_SET, CK_CFG_6_CLR,
 		0, 3, 7,
 		0x004, 24),
 
-	MUX_CLR_SET_UPD(TOP_MUX_AUDIO, "audio_sel", audio_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_AUDIO, "audio_sel", audio_parents,
 		CK_CFG_6, CK_CFG_6_SET, CK_CFG_6_CLR,
 		8, 2, 15,
 		0x004, 25),
 
-	MUX_CLR_SET_UPD(TOP_MUX_AUD_INTBUS, "aud_intbus_sel",
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_AUD_INTBUS, "aud_intbus_sel",
 		aud_intbus_parents,
 		CK_CFG_6, CK_CFG_6_SET, CK_CFG_6_CLR,
 		16, 2, 23,
 		0x004, 26),
 
-	MUX_CLR_SET_UPD(TOP_MUX_FPWRAP_ULPOSC, "fpwrap_ulposc_sel",
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_FPWRAP_ULPOSC, "fpwrap_ulposc_sel",
 		fpwrap_ulposc_parents,
 		CK_CFG_6, CK_CFG_6_SET, CK_CFG_6_CLR,
 		24, 3, 31,
 		0x004, 27),
 
 	/* CLK_CFG_7 */
-	MUX_CLR_SET_UPD(TOP_MUX_ATB, "atb_sel", atb_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_ATB, "atb_sel", atb_parents,
 		CK_CFG_7, CK_CFG_7_SET, CK_CFG_7_CLR,
 		0, 2, 7,
 		0x004, 28),
 
-	MUX_CLR_SET_UPD(TOP_MUX_SSPM, "sspm_sel", sspm_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_SSPM, "sspm_sel", sspm_parents,
 		CK_CFG_7, CK_CFG_7_SET, CK_CFG_7_CLR,
 		8, 3, 15,
 		0x004, 29),
 
-	MUX_CLR_SET_UPD(TOP_MUX_DPI0, "dpi0_sel", dpi0_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_DPI0, "dpi0_sel", dpi0_parents,
 		CK_CFG_7, CK_CFG_7_SET, CK_CFG_7_CLR,
 		16, 3, 23,
 		0x004, 30),
 
 	/* CLK_CFG_8 */
-	MUX_CLR_SET_UPD(TOP_MUX_DISP_PWM, "disppwm_sel", disppwm_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_DISP_PWM, "disppwm_sel", disppwm_parents,
 		CK_CFG_8, CK_CFG_8_SET, CK_CFG_8_CLR,
 		0, 3, 7,
 		0x008, 1),
 
-	MUX_CLR_SET_UPD(TOP_MUX_USB_TOP, "usb_top_sel", usb_top_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_USB_TOP, "usb_top_sel", usb_top_parents,
 		CK_CFG_8, CK_CFG_8_SET, CK_CFG_8_CLR,
 		8, 2, 15,
 		0x008, 2),
 
-	MUX_CLR_SET_UPD(TOP_MUX_SSUSB_TOP_XHCI, "ssusb_top_xhci_sel",
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_SSUSB_TOP_XHCI, "ssusb_top_xhci_sel",
 		ssusb_top_xhci_parents,
 		CK_CFG_8, CK_CFG_8_SET, CK_CFG_8_CLR,
 		16, 2, 23,
 		0x008, 3),
 
-	MUX_CLR_SET_UPD(TOP_MUX_SPM, "spm_sel", spm_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_SPM, "spm_sel", spm_parents,
 		CK_CFG_8, CK_CFG_8_SET, CK_CFG_8_CLR,
 		24, 2, 31,
 		0x008, 4),
 
 	/* CLK_CFG_9 */
-	MUX_CLR_SET_UPD(TOP_MUX_I2C, "i2c_sel", i2c_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_I2C, "i2c_sel", i2c_parents,
 		CK_CFG_9, CK_CFG_9_SET, CK_CFG_9_CLR,
 		0, 2, 7,
 		0x008, 5),
 
-	MUX_CLR_SET_UPD(TOP_MUX_SENINF, "seninf_sel", seninf_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_SENINF, "seninf_sel", seninf_parents,
 		CK_CFG_9, CK_CFG_9_SET, CK_CFG_9_CLR,
 		8, 2, 15,
 		0x008, 6),
 
-	MUX_CLR_SET_UPD(TOP_MUX_SENINF1, "seninf1_sel", seninf1_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_SENINF1, "seninf1_sel", seninf1_parents,
 		CK_CFG_9, CK_CFG_9_SET, CK_CFG_9_CLR,
 		16, 2, 23,
 		0x008, 7),
 
-	MUX_CLR_SET_UPD(TOP_MUX_SENINF2, "seninf2_sel", seninf2_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_SENINF2, "seninf2_sel", seninf2_parents,
 		CK_CFG_9, CK_CFG_9_SET, CK_CFG_9_CLR,
 		24, 2, 31,
 		0x008, 8),
 
 	/* CLK_CFG_10 */
-	MUX_CLR_SET_UPD(TOP_MUX_DXCC, "dxcc_sel", dxcc_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_DXCC, "dxcc_sel", dxcc_parents,
 		CK_CFG_10, CK_CFG_10_SET, CK_CFG_10_CLR,
 		0, 2, 7,
 		0x008, 9),
 
-	MUX_CLR_SET_UPD(TOP_MUX_AUD_ENG1, "aud_eng1_sel",
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_AUD_ENG1, "aud_eng1_sel",
 		aud_eng1_parents,
 		CK_CFG_10, CK_CFG_10_SET, CK_CFG_10_CLR,
 		8, 2, 15,
 		0x008, 10),
 
-	MUX_CLR_SET_UPD(TOP_MUX_AUD_ENG2, "aud_eng2_sel",
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_AUD_ENG2, "aud_eng2_sel",
 		aud_eng2_parents,
 		CK_CFG_10, CK_CFG_10_SET, CK_CFG_10_CLR,
 		16, 2, 23,
 		0x008, 11),
 
-	MUX_CLR_SET_UPD(TOP_MUX_FAES_UFSFDE, "faes_ufsfde_sel",
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_FAES_UFSFDE, "faes_ufsfde_sel",
 		faes_ufsfde_parents,
 		CK_CFG_10, CK_CFG_10_SET, CK_CFG_10_CLR,
 		24, 3, 31,
 		0x008, 12),
 
 	/* CLK_CFG_11 */
-	MUX_CLR_SET_UPD(TOP_MUX_FUFS, "fufs_sel", fufs_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_FUFS, "fufs_sel", fufs_parents,
 		CK_CFG_11, CK_CFG_11_SET, CK_CFG_11_CLR,
 		0, 2, 7,
 		0x008, 13),
 
-	MUX_CLR_SET_UPD(TOP_MUX_AUD_1, "aud_1_sel", aud_1_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_AUD_1, "aud_1_sel", aud_1_parents,
 		CK_CFG_11, CK_CFG_11_SET, CK_CFG_11_CLR,
 		8, 1, 15,
 		0x008, 14),
 
-	MUX_CLR_SET_UPD(TOP_MUX_AUD_2, "aud_2_sel", aud_2_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_AUD_2, "aud_2_sel", aud_2_parents,
 		CK_CFG_11, CK_CFG_11_SET, CK_CFG_11_CLR,
 		16, 1, 23,
 		0x008, 15),
 
-	MUX_CLR_SET_UPD(TOP_MUX_ADSP, "adsp_sel", adsp_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_ADSP, "adsp_sel", adsp_parents,
 		CK_CFG_11, CK_CFG_11_SET, CK_CFG_11_CLR,
 		24, 3, 31,
 		0x008, 16),
 
 	/* CLK_CFG_12 */
-	MUX_CLR_SET_UPD(TOP_MUX_DPMAIF, "dpmaif_sel", dpmaif_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_DPMAIF, "dpmaif_sel", dpmaif_parents,
 		CK_CFG_12, CK_CFG_12_SET, CK_CFG_12_CLR,
 		0, 3, 7,
 		0x008, 17),
 
-	MUX_CLR_SET_UPD(TOP_MUX_VENC, "venc_sel", venc_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_VENC, "venc_sel", venc_parents,
 		CK_CFG_12, CK_CFG_12_SET, CK_CFG_12_CLR,
 		8, 4, 15,
 		0x008, 18),
 
-	MUX_CLR_SET_UPD(TOP_MUX_VDEC, "vdec_sel", vdec_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_VDEC, "vdec_sel", vdec_parents,
 		CK_CFG_12, CK_CFG_12_SET, CK_CFG_12_CLR,
 		16, 4, 23,
 		0x008, 19),
 
-	MUX_CLR_SET_UPD(TOP_MUX_CAMTM, "camtm_sel", camtm_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_CAMTM, "camtm_sel", camtm_parents,
 		CK_CFG_12, CK_CFG_12_SET, CK_CFG_12_CLR,
 		24, 2, 31,
 		0x004, 20),
 
 	/* CLK_CFG_13 */
-	MUX_CLR_SET_UPD(TOP_MUX_PWM, "pwm_sel", pwm_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_PWM, "pwm_sel", pwm_parents,
 		CK_CFG_13, CK_CFG_13_SET, CK_CFG_13_CLR,
 		0, 1, 7,
 		0x008, 21),
 
-	MUX_CLR_SET_UPD(TOP_MUX_AUDIO_H, "audio_h_sel", audio_h_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_AUDIO_H, "audio_h_sel", audio_h_parents,
 		CK_CFG_13, CK_CFG_13_SET, CK_CFG_13_CLR,
 		8, 2, 15,
 		0x008, 22),
 
-	MUX_CLR_SET_UPD(TOP_MUX_CAMTG5, "camtg5_sel", camtg5_parents,
+	MUX_GATE_CLR_SET_UPD(TOP_MUX_CAMTG5, "camtg5_sel", camtg5_parents,
 		CK_CFG_13, CK_CFG_13_SET, CK_CFG_13_CLR,
 		24, 3, 31,
 		0x008, 24),
 #endif
 };
 
-static const struct mtk_composite top_audmuxes[] __initconst = {
+static const struct mtk_composite top_audmuxes[]  = {
 
 	MUX(TOP_I2S0_M_SEL, "i2s0_m_ck_sel", i2s0_m_ck_parents, 0x320, 8, 1),
 	MUX(TOP_I2S1_M_SEL, "i2s1_m_ck_sel", i2s1_m_ck_parents, 0x320, 9, 1),
@@ -1804,7 +1804,7 @@ static const struct mtk_gate_regs infra3_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy,		\
 	}
 
-static const struct mtk_gate infra_clks[] __initconst = {
+static const struct mtk_gate infra_clks[]  = {
 #if MT_CCF_BRINGUP
 	/* INFRA0 */
 	GATE_INFRA0_DUMMY(INFRACFG_AO_PMIC_CG_TMR, "infra_pmic_tmr",
@@ -2294,7 +2294,7 @@ static const struct mtk_gate_regs mfg_cfg_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy,		\
 	}
 
-static const struct mtk_gate mfg_cfg_clks[] __initconst = {
+static const struct mtk_gate mfg_cfg_clks[]  = {
 #if MT_CCF_BRINGUP
 	GATE_MFG_CFG_DUMMY(MFGCFG_BG3D, "mfg_cfg_bg3d", "mfg_sel", 0)
 #else
@@ -2326,7 +2326,7 @@ static const struct mtk_gate_regs apmixed_cg_regs = {
 		.ops = &mtk_clk_gate_ops_inv_dummy,	\
 	}
 
-static const struct mtk_gate apmixed_clks[] __initconst = {
+static const struct mtk_gate apmixed_clks[]  = {
 #if MT_CCF_BRINGUP
 	GATE_APMIXED_DUMMY(APMIXED_SSUSB26M, "apmixed_ssusb26m", "f_f26m_ck",
 		4),
@@ -2424,7 +2424,7 @@ static const struct mtk_gate_regs audio1_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy,		\
 	}
 
-static const struct mtk_gate audio_clks[] __initconst = {
+static const struct mtk_gate audio_clks[]  = {
 #if MT_CCF_BRINGUP
 	/* AUDIO0 */
 	GATE_AUDIO0_DUMMY(AUDIO_AFE, "aud_afe", "audio_sel",
@@ -2589,7 +2589,7 @@ static const struct mtk_gate_regs cam_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy,	\
 	}
 
-static const struct mtk_gate cam_clks[] __initconst = {
+static const struct mtk_gate cam_clks[]  = {
 #if MT_CCF_BRINGUP
 	GATE_CAM_DUMMY(CAMSYS_LARB6_CGPDN, "camsys_larb6", "cam_sel", 0),
 	GATE_CAM_DUMMY(CAMSYS_LARB7_CGPDN, "camsys_larb7", "cam_sel", 2),
@@ -2639,7 +2639,7 @@ static const struct mtk_gate_regs img_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy,	\
 	}
 
-static const struct mtk_gate img_clks[] __initconst = {
+static const struct mtk_gate img_clks[]  = {
 #if 1//MT_CCF_BRINGUP
 	GATE_IMG_DUMMY(IMG_LARB5, "imgsys_larb5", "img_sel", 0),
 	GATE_IMG_DUMMY(IMG_LARB4, "imgsys_larb4", "img_sel", 1),
@@ -2723,7 +2723,7 @@ static const struct mtk_gate_regs mm1_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy,	\
 	}
 
-static const struct mtk_gate mm_clks[] __initconst = {
+static const struct mtk_gate mm_clks[]  = {
 #if MT_CCF_BRINGUP
 	/* MM0 */
 	GATE_MM0_DUMMY(MMSYS_SMI_COMMON, "mm_smi_common", "mm_sel", 0),
@@ -2889,7 +2889,7 @@ static const struct mtk_gate_regs vdec1_cg_regs = {
 		.ops = &mtk_clk_gate_ops_setclr_inv_dummy,	\
 	}
 
-static const struct mtk_gate vdec_clks[] __initconst = {
+static const struct mtk_gate vdec_clks[]  = {
 #if 1//MT_CCF_BRINGUP
 	/* VDEC0 */
 	GATE_VDEC0_I_DUMMY(VDEC_VDEC, "vdec_cken", "vdec_sel", 0),
@@ -2927,7 +2927,7 @@ static const struct mtk_gate_regs venc_global_con_cg_regs = {
 		.ops = &mtk_clk_gate_ops_setclr_inv_dummy,	\
 	}
 
-static const struct mtk_gate venc_global_con_clks[] __initconst = {
+static const struct mtk_gate venc_global_con_clks[]  = {
 #if 1//MT_CCF_BRINGUP
 	GATE_VENC_GLOBAL_CON_DUMMY(VENC_GCON_LARB, "venc_larb",
 		"venc_sel", 0),
@@ -2973,7 +2973,7 @@ static const struct mtk_gate_regs apu_conn_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy,	\
 	}
 
-static const struct mtk_gate apu_conn_clks[] __initconst = {
+static const struct mtk_gate apu_conn_clks[]  = {
 	GATE_APU_CONN_DUMMY(APU_CONN_APU_CG, "apu_conn_apu", "dsp1_sel", 0),
 	GATE_APU_CONN_DUMMY(APU_CONN_AHB_CG, "apu_conn_ahb", "dsp_sel", 1),
 	GATE_APU_CONN_DUMMY(APU_CONN_AXI_CG, "apu_conn_axi", "dsp_sel", 2),
@@ -3012,7 +3012,7 @@ static const struct mtk_gate_regs apu0_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy,	\
 	}
 
-static const struct mtk_gate apu0_clks[] __initconst = {
+static const struct mtk_gate apu0_clks[]  = {
 #if MT_CCF_BRINGUP
 	GATE_APU0_DUMMY(APU0_APU_CG, "apu0_apu", "dsp1_sel", 0),
 	GATE_APU0_DUMMY(APU0_AXI_M_CG, "apu0_axi", "dsp1_sel", 1),
@@ -3048,7 +3048,7 @@ static const struct mtk_gate_regs apu1_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy,	\
 	}
 
-static const struct mtk_gate apu1_clks[] __initconst = {
+static const struct mtk_gate apu1_clks[]  = {
 #if MT_CCF_BRINGUP
 	GATE_APU1_DUMMY(APU1_APU_CG, "apu1_apu", "dsp2_sel", 0),
 	GATE_APU1_DUMMY(APU1_AXI_M_CG, "apu1_axi", "dsp2_sel", 1),
@@ -3084,7 +3084,7 @@ static const struct mtk_gate_regs apu_vcore_cg_regs = {
 		.ops = &mtk_clk_gate_ops_dummy_all,	\
 	}
 
-static const struct mtk_gate apu_vcore_clks[] __initconst = {
+static const struct mtk_gate apu_vcore_clks[]  = {
 #if 1/*MT_CCF_BRINGUP*/
 	GATE_APU_VCORE_DUMMY(APU_VCORE_AHB_CG, "apu_vcore_ahb",
 		"ipu_if_sel", 0),
