@@ -2,8 +2,10 @@
 #include "mt6785.dtsi"
 
 / {
-  model = "Lenovo Tab P11 Plus TB-J616F";
-  compatible = "mediatek,mt6785-tb-j616f", "mediatek,mt6785";
+//  model = "Lenovo Tab P11 Plus TB-J616F";
+//  compatible = "mediatek,mt6785-tb-j616f", "mediatek,mt6785";
+  model = "MT6785";
+  compatible = "mediatek,MT6785";
   
 	memory {
 		device_type = "memory";
